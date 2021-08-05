@@ -53,43 +53,24 @@ class llamalab extends eqLogic {
 	public function postSave() {
 		$this->loadCmdFromConf('llamalab');
 	}
+
+	public function preSave() {
+		$url = network::getNetworkAccess('external') . '/plugins/llamalab/core/api/jeeAutomate.php?apikey=' . jeedom::getApiKey('llamalab') . '&id=' . $this->getId();
+		$this->setConfiguration('url', $url);
+	}
+
+	public function updateInfos($_data) {
+		foreach ($_data as $key => $value) {
+			$this->checkAndUpdateCmd($key, $value);
+		}
+	}
 }
 
 class llamalabCmd extends cmd {
 	public function execute($_options = null) {
 			if ($this->getType() == 'action') {
 				$eqLogic = $this->getEqLogic();
-				if ($this->getLogicalId() == 'refresh') {
-					$eqLogic->refresh();
-					return;
-				}
-				$put = array();
-				if ($this->getSubType() == 'slider') {
-					$put[$this->getConfiguration('argument')] = $_options['slider'];
-				} else if ($this->getSubType() == 'select') {
-					$put[$this->getConfiguration('argument')] = $_options['select'];
-				} else if ($this->getSubType() == 'message') {
-					$put[$this->getConfiguration('argument')] = $_options['title'];
-					if ($this->getConfiguration('argument') == 'command') {
-						$put['arguments'][] = $_options['message'];
-					} else {
-						if (strpos('icone=',$_options['message']) === false) {
-							$put['message'][] = $_options['message'];
-						} else {
-							$parts = explode(';', str_replace('icone=','',$_options['message']));
-							$put['message'][] = $parts[1];
-							$put['icon'][] = $parts[0];
-						}
-					}
-				} else {
-					$put[$this->getConfiguration('argument')] = $this->getConfiguration('value');
-				}
-				if (strpos('audio',$this->getConfiguration('request')) === false) {
-					$method = 'post';
-				} else {
-					$method = 'put';
-				}
-				$eqLogic->callOpenData($this->getConfiguration('request'),$put,$method);
+				$eqLogic->checkAndUpdateCmd('todo', $_options['title']);
 			}
 		}
 }
