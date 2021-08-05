@@ -73,6 +73,12 @@
       "logicalId": "mutedAlarm"
     },
     {
+      "name": "Todo",
+      "type": "info",
+      "subtype": "string",
+      "logicalId": "todo"
+    },
+    {
       "name": "Envoyer des informations à Automate",
       "type": "action",
       "subtype": "message",
