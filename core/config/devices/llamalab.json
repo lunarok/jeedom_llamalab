@@ -73,6 +73,12 @@
       "logicalId": "mutedAlarm"
     },
     {
+      "name": "Prochaine Alarme",
+      "type": "info",
+      "subtype": "numeric",
+      "logicalId": "alarm"
+    },
+    {
       "name": "Todo",
       "type": "info",
       "subtype": "string",

@@ -120,6 +120,13 @@ $eqLogics = eqLogic::byType('llamalab');
               </div>
             </div>
 
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Flow Automate</label>
+              <div class="col-sm-3">
+                <a href="plugins/llamalab/resources/Informations.flo">Récupérer le flow à importer</a>
+              </div>
+            </div>
+
           </fieldset>
         </form>
       </div>
