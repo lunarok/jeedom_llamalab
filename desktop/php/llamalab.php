@@ -116,14 +116,14 @@ $eqLogics = eqLogic::byType('llamalab');
             <div class="form-group">
               <label class="col-sm-3 control-label">URL à utiliser pour cet appareil</label>
               <div class="col-sm-3">
-                <input type="text"  class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="url" />
+                <span class="eqLogicAttr" data-l1key="configuration" data-l2key="url"></span>
               </div>
             </div>
 
             <div class="form-group">
               <label class="col-sm-3 control-label">Flow Automate</label>
               <div class="col-sm-3">
-                <a href="plugins/llamalab/resources/Informations.flo">Récupérer le flow à importer</a>
+                <a href="plugins/llamalab/resources/Informations.flo" download="Informations.flo">Récupérer le flow à importer</a>
               </div>
             </div>
 
