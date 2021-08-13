@@ -38,6 +38,14 @@ $value = $cmd->execCmd();
 if ($value != '') {
   $eqLogic->checkAndUpdateCmd('todo', '');
 }
+
+if (class_exists('geotrav')) {
+ $geolocCmd = geotravCmd::byEqLogicIdAndLogicalId(str_replace('#', '', str_replace('eqLogic', '', $eqLogic->getConfiguration('cmdgeoloc', ''))),'location:updateCoo');
+ $option = array('message' => $data["latitude"] . ',' . $data["longitude"]);
+ if (is_object($geolocCmd)) {
+  $geolocCmd->execute($option);
+ }
+}
 //echo json_encode($value);
 echo $value;
 
