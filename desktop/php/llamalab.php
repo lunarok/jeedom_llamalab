@@ -120,10 +120,25 @@ $eqLogics = eqLogic::byType('llamalab');
               </div>
             </div>
 
-            <div class="form-group">
-              <label class="col-sm-3 control-label">Flow Automate</label>
+            <div id="cmdgeoloc" class="form-group" style="display:none">
+              <label class="col-sm-3 control-label">{{Localisation à utiliser}}</label>
               <div class="col-sm-3">
-                <a href="plugins/llamalab/resources/Informations.flo" download="Informations.flo">Récupérer le flow à importer</a>
+                <select class="form-control eqLogicAttr configuration" data-l1key="configuration" data-l2key="geoloc">
+                  <?php
+                                    $none = 0;
+                                    if (class_exists('geotravCmd')) {
+                                        foreach (eqLogic::byType('geotrav') as $geoloc) {
+                                            if ($geoloc->getConfiguration('type') == 'location') {
+                                                $none = 1;
+                                                echo '<option value="' . $geoloc->getId() . '">' . $geoloc->getName() . '</option>';
+                                            }
+                                        }
+                                    } 
+                                    if ($none == 0) {
+                                        echo '<option value="">Pas de localisation disponible</option>';
+                                    }
+                                    ?>
+                </select>
               </div>
             </div>
 
