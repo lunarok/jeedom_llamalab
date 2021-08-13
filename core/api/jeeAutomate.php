@@ -40,7 +40,7 @@ if ($value != '') {
 }
 
 if (class_exists('geotrav')) {
- $geolocCmd = geotravCmd::byEqLogicIdAndLogicalId(str_replace('#', '', str_replace('eqLogic', '', $eqLogic->getConfiguration('cmdgeoloc', ''))),'location:updateCoo');
+ $geolocCmd = geotravCmd::byEqLogicIdAndLogicalId($eqLogic->getConfiguration('geoloc', ''),'location:updateCoo');
  $option = array('message' => $data["latitude"] . ',' . $data["longitude"]);
  if (is_object($geolocCmd)) {
   $geolocCmd->execute($option);
