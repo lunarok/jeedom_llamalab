@@ -120,7 +120,7 @@ $eqLogics = eqLogic::byType('llamalab');
               </div>
             </div>
 
-            <div id="cmdgeoloc" class="form-group" style="display:none">
+            <div class="form-group">
               <label class="col-sm-3 control-label">{{Localisation à utiliser}}</label>
               <div class="col-sm-3">
                 <select class="form-control eqLogicAttr configuration" data-l1key="configuration" data-l2key="geoloc">
