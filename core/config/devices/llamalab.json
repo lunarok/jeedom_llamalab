@@ -79,6 +79,24 @@
       "logicalId": "alarm"
     },
     {
+      "name": "SMS Numéro",
+      "type": "info",
+      "subtype": "string",
+      "logicalId": "sms_number"
+    },
+    {
+      "name": "SMS Message",
+      "type": "info",
+      "subtype": "string",
+      "logicalId": "sms_message"
+    },
+    {
+      "name": "SMS Timestamp",
+      "type": "info",
+      "subtype": "numeric",
+      "logicalId": "sms_ts"
+    },
+    {
       "name": "Todo",
       "type": "info",
       "subtype": "string",
